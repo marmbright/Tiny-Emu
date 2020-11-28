@@ -71,6 +71,6 @@ char *disassemble(decoded *d) {
 }
 
 decoded *decode(unsigned int inst) {
-    	printf("You need to implement decode()\n");
+	*p = malloc(sizeof(decoded));
     	return NULL;
 }

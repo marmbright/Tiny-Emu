@@ -1,0 +1,42 @@
+-----------PROGRAM 1------------
+//r 13 400
+//m 400 10
+//m 404 20
+//m 408 0
+	ldr r0, [r13, #0]
+	ldr r1, [r13, #4]
+	cmp r0, r0, r1
+	bgt else
+	str r0, [r13, #8]
+else:
+	str r1, [r13, #8]
+
+--------PROGRAM 2-----------
+//r 13 400
+//m 400 0	//sum
+//m 404 a	//n
+//m 408 0	//i
+	ldr r0, [r13, #0]	//sum in r0
+	ldr r1, [r13, #4]	//n in r1
+	ldr r2, [r13, #8]	//i in r2
+loop:
+	add r0, r0, r2
+	str r0, [r13, #0]
+	add r2, r2, #1
+	str r2, [r13, #8]
+	cmp r2, r1
+	ble loop
+	str r2, [r13, #c]
+
+--------PROGRAM 3-----------
+
+
+
+
+
+
+
+
+
+
+

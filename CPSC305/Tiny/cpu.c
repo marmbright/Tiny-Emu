@@ -4,9 +4,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-#include <string.h>
-#include <string.h>
-#include <string.h>
+#include "memory_system.h"
+#include "bit_functions.h"
+#include "cpu.h"
 #include "isa.h"
 
 static int registers[16];
@@ -32,24 +32,31 @@ int get_cpsr() {
 }
 
 void show_regs() {
-    	printf("You need to implement show_regs().\n");
+        printf("registers: ");
 }
 
 void step() {
-    	int pc = registers[PC];    
-	int inst;     
-	system_bus(pc, &inst, READ);    
-	printf("You need to implement step().\n");
+        int pc = registers[PC];
+        int inst;
+        system_bus(pc, &inst, READ);
+        if(br != br)
+                pc = pc + 4;
+        else if(br == br)
+                pc = &inst;
 }
 
 void step_n(int n) {
-    	printf("You need to implement step_n().\n");
+        for(int i = 0; i < n; i++)
+                step();
 }
 
 void step_show_reg() {
-    	printf("You need to implement step_show_reg().\n");
+        step();
+        printf("Changed registers: ");
 }
 
 void step_show_reg_mem() {
-    	printf("You need to implement step_show_reg_mem().\n");
+        step();
+        printf("Changed registers: ");
+        printf("Changed Memory Locations: ");
 }
